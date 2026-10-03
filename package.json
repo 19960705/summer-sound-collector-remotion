@@ -1,0 +1,32 @@
+{
+  "name": "summer-sound-collector-remotion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Editable watercolor summer sound animation rebuilt with Remotion, React and SVG.",
+  "scripts": {
+    "start": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "remotion bundle src/index.ts",
+    "render": "remotion render src/index.ts SummerSoundCollector out/summer-sound-collector.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=3",
+    "render:preview": "npm run render -- --scale=0.5",
+    "stills": "node scripts/render-stills.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "@fontsource/gaegu": "5.3.0",
+    "@fontsource/mr-de-haviland": "5.3.0",
+    "@fontsource/zen-kurenaido": "5.3.0",
+    "@remotion/media": "4.0.532",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@remotion/bundler": "4.0.532",
+    "@remotion/cli": "4.0.532",
+    "@remotion/renderer": "4.0.532",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}

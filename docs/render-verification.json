@@ -1,0 +1,14 @@
+{
+  "file": "out/summer-sound-collector.mp4",
+  "width": 1920,
+  "height": 1080,
+  "fps": "30/1",
+  "duration": 37.12,
+  "frames": 1113,
+  "video": "h264",
+  "pixelFormat": "yuvj420p",
+  "colorRange": "pc",
+  "audio": "aac",
+  "fullDecode": "passed",
+  "sha256": "38f404dd3a657804ca5fe00a99e0ecee017789d0247fccc6955ac4cac0fd55ed"
+}
