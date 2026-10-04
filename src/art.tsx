@@ -7,6 +7,7 @@ export const Definitions = () => <defs>
   <linearGradient id="terracotta" x2=".25" y2="1"><stop stopColor="#e4bea0"/><stop offset=".5" stopColor="#cd8d63"/><stop offset="1" stopColor="#af4e35"/></linearGradient>
   <linearGradient id="airmail"><stop stopColor="#dec5a6"/><stop offset=".45" stopColor="#b57453"/><stop offset="1" stopColor="#713347"/></linearGradient>
   <linearGradient id="burgundy" x2=".7" y2="1"><stop stopColor="#c17d69"/><stop offset=".5" stopColor="#974654"/><stop offset="1" stopColor="#542b39"/></linearGradient>
+  <linearGradient id="mailboxPaint" gradientUnits="userSpaceOnUse" x1="-90" y1="-198" x2="90" y2="168"><stop stopColor="#c17d69"/><stop offset=".5" stopColor="#974654"/><stop offset="1" stopColor="#542b39"/></linearGradient>
   <linearGradient id="parchment" x2=".2" y2="1"><stop stopColor="#f6dfb7"/><stop offset="1" stopColor="#d8ae7a"/></linearGradient>
   <linearGradient id="leaf" x2=".2" y2="1"><stop stopColor="#e4ba79"/><stop offset=".4" stopColor="#c66d39"/><stop offset="1" stopColor="#923a35"/></linearGradient>
   <radialGradient id="halo"><stop stopColor="#ca855c" stopOpacity=".3"/><stop offset="1" stopColor="#ecd7b7" stopOpacity="0"/></radialGradient>
@@ -59,11 +60,17 @@ export const WaxSeal = ({x=0,y=0,s=1,angle=0}:{x?:number;y?:number;s?:number;ang
   <MapleLeaf y={9} s={.42} fill="#ddb494"/>
 </g>;
 
-export const Mailbox = ({x,y,s=1,t=0,detail=1}:{x:number;y:number;s?:number;t?:number;detail?:number}) => <g transform={`translate(${x} ${y}) scale(${s})`}>
-  <ellipse cy="175" rx="123" ry="16" fill={C.ink} opacity=".1"/>
-  <path d="M-96 150 V-98 Q-96 -198 0 -198 Q96 -198 96 -98 V150Z" fill="url(#burgundy)" filter="url(#paint)"/>
-  <path d="M52 -175 Q96 -157 96 -98 V150 H61 V-103 Q61 -150 52 -175Z" fill={C.ink} opacity=".28"/>
-  <rect x="-108" y="147" width="215" height="21" rx="4" fill={C.ink}/>
+export const Mailbox = ({x,y,s=1,t=0,detail=1,assembly=1}:{x:number;y:number;s?:number;t?:number;detail?:number;assembly?:number}) => <g transform={`translate(${x} ${y}) scale(${s})`}>
+  <ellipse cy="175" rx="123" ry="16" fill={C.ink} opacity={.1*assembly}/>
+  {/* The same two silhouettes persist through assembly and the finished shot. */}
+  <g transform={`translate(0 ${(1-assembly)*80})`}>
+    <rect x="-96" y="-98" width="192" height="248" fill="url(#mailboxPaint)" filter="url(#paint)"/>
+  </g>
+  <g transform={`translate(${-(1-assembly)*170} ${(1-assembly)*100})`}>
+    <path d="M-96 -94 V-98 Q-96 -198 0 -198 Q96 -198 96 -98 V-94Z" fill="url(#mailboxPaint)" filter="url(#paint)"/>
+  </g>
+  <path d="M52 -175 Q96 -157 96 -98 V150 H61 V-103 Q61 -150 52 -175Z" fill={C.ink} opacity={.28*detail}/>
+  <rect x="-108" y="147" width="215" height="21" rx="4" fill={C.ink} opacity={detail}/>
   <g opacity={detail}>
     <path d="M-71 -105 H70" stroke={C.ink} strokeWidth="17" strokeLinecap="round"/>
     <path d="M-69 -116 H67" stroke={C.ochre} strokeWidth="4"/>

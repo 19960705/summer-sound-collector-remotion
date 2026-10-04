@@ -1,0 +1,11 @@
+{
+  "track": "Letters in October",
+  "activeAsset": "public/audio/letters-in-october.m4a",
+  "duration": 37.1,
+  "sampleRate": 44100,
+  "channels": 2,
+  "videoIntegratedLUFS": -19.5,
+  "videoTruePeakDBFS": -4.4,
+  "videoLoudnessRangeLU": 3.1,
+  "decode": "passed"
+}

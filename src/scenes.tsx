@@ -84,20 +84,18 @@ export const Letter = ({t}:{t:number}) => <g transform={`translate(${1280*ramp(t
 </g>;
 
 export const Assembly = ({t}:{t:number}) => {
-  const zoom=ramp(t,.9,2.55),morph=ramp(t,3.6,4.35),s=mix(5.3,1,zoom);
+  // Position, zoom and part alignment all settle before the next shot.
+  const zoom=ramp(t,.1,3.5),assembly=ramp(t,.65,3.55);
   return <g>
-    <ellipse cx="640" cy="397" rx="420" ry="285" fill="url(#halo)" opacity={morph}/>
-    <g opacity={1-morph}>
-      <g transform={`translate(${mix(930,640,zoom)} ${mix(450,421,zoom)}) scale(${s})`}><rect x="-94" y="-50" width="188" height="219" fill="url(#burgundy)" filter="url(#paint)"/></g>
-      <g transform={`translate(${mix(-160,640,ramp(t,0,.65))} ${mix(220,247,zoom)}) scale(${s})`}><path d="M-96 34 V0 A96 96 0 0 1 96 0 V34Z" fill="url(#burgundy)" filter="url(#paint)"/></g>
-    </g>
-    <g opacity={morph}><Mailbox x={640} y={382} t={0} detail={0}/></g>
+    <ellipse cx="640" cy="382" rx="430" ry="280" fill="url(#halo)" opacity={ramp(t,2.4,3.55)}/>
+    <Mailbox x={mix(780,640,zoom)} y={mix(430,382,zoom)} s={mix(4.3,1,zoom)} assembly={assembly} t={0} detail={ramp(t,3.55,4.15)}/>
+    <g opacity={ramp(t,3.75,4.3)}><Envelope x={424} y={470} s={.66} angle={-20}/><MapleLeaf x={820} y={500} s={.51} angle={36}/></g>
   </g>;
 };
 
 export const Hero = ({t}:{t:number}) => <g>
   <ellipse cx="640" cy="382" rx="430" ry="280" fill="url(#halo)"/>
-  <Mailbox x={640} y={382} t={t} detail={ramp(t,0,.45)}/>
+  <Mailbox x={640} y={382} t={t}/>
   <Envelope x={424} y={470+Math.sin(t*2)*8} s={.66} angle={-20}/>
   <MapleLeaf x={820} y={500} s={.51} angle={36+t*4}/>
 </g>;

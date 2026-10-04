@@ -32,6 +32,6 @@ export const Film: React.FC<{sound:boolean}> = ({sound}) => {
       <Scene t={t-SHOTS[i].start}/>
       <rect width="1280" height="720" fill="transparent" filter="url(#paper)" style={{mixBlendMode:'multiply',pointerEvents:'none'}}/>
     </svg>
-    {sound && <Audio src={staticFile('audio/reference-soundtrack.m4a')}/>}
+    {sound && <Audio src={staticFile('audio/letters-in-october.m4a')}/>}
   </AbsoluteFill>;
 };

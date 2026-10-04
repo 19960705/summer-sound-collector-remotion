@@ -10,7 +10,9 @@
     "render": "remotion render src/index.ts AutumnPostOffice out/autumn-post-office.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=3",
     "render:preview": "npm run render -- --scale=0.5",
     "stills": "node scripts/render-stills.mjs",
-    "verify": "node scripts/verify.mjs"
+    "verify": "node scripts/verify.mjs",
+    "music": "bash scripts/build-music.sh",
+    "check:transition": "node scripts/check-transition.mjs"
   },
   "dependencies": {
     "@fontsource/gaegu": "5.3.0",

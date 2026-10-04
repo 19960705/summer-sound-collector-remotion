@@ -25,6 +25,7 @@ npm run stills        # 12 张关键帧
 npm run typecheck     # TypeScript 检查
 npm run build         # 静态打包
 npm run verify        # 媒体信息与完整解码检查，需 ffmpeg / ffprobe
+npm run check:transition # 检查信箱场景交接前后两帧一致
 ```
 
 输出视频：`out/autumn-post-office.mp4`。关键帧：`out/autumn-stills/`。验证报告：`out/autumn-verification.json`。
@@ -47,7 +48,7 @@ npm run verify        # 媒体信息与完整解码检查，需 ffmpeg / ffprobe
 | 15.95–18.75 s | 酒红画布上的大枫叶舒展旋转，叶片擦拭 |
 | 18.75–20.95 s | DEAR / AUTUMN / POST / TO YOU / OCTOBER 邮票浮动 |
 | 20.95–24.45 s | 手写明信片，地址栏逐行描绘 |
-| 24.45–28.80 s | 信箱的拱顶与箱体从大特写缩小组装 |
+| 24.45–28.80 s | 同一组拱顶与箱体连续缩放、减速贴合，细节渐显 |
 | 28.80–31.60 s | 酒红信箱、信封与枫叶主画面 |
 | 31.60–34.65 s | 秋日邮局片名，信箱、邮票与秋树，邮政边框描边 |
 | 34.65–37.10 s | 信封与枫叶火漆，UNTIL THE NEXT LETTER 收尾 |
@@ -66,7 +67,11 @@ npm run verify        # 媒体信息与完整解码检查，需 ffmpeg / ffprobe
 
 水彩质感由 SVG 噪声、混色和边缘位移生成。画面采用秋日邮局设计；分镜时序和水彩拼贴表现参考用户提供的录屏。原录屏只用于本地分析，未提交到仓库。
 
-`public/audio/reference-soundtrack.m4a` 延用用户提供参考的音轨，不是重新作曲；其权利归原权利人，仓库不授予第三方再使用权。字体 Gaegu、Mr De Haviland、Zen Kurenaido 来自 Fontsource，许可证随 npm 包提供。
+当前配乐是为本片新编写的纯音乐 **Letters in October**：72 BPM、C 大调、3/4 拍，钢琴、马林巴木琴、拨奏弦乐和轻弦乐。活跃音轨为 `public/audio/letters-in-october.m4a`；音乐编排与乐谱见 `docs/music-arrangement.yaml` 和 `music/letters-in-october.score.json`。
+
+配乐可通过 `npm run music` 重建（需要 macOS、Python 3、Swift 和 FFmpeg，使用系统自带乐器库；不消耗生成额度）。其他系统可直接使用仓库内的成品音轨渲染视频。旋律与编排代码是本项目新写，乐器采样来自 macOS 系统库；仓库不分发系统音色库。原参考音轨文件仅作素材留存，不参与当前渲染，其权利归原权利人。
+
+字体 Gaegu、Mr De Haviland、Zen Kurenaido 来自 Fontsource，许可证随 npm 包提供。
 
 仓库没有签名视频地址、绑定凭证或账号凭证。未使用云渲染或付费生成服务。Remotion 商业使用遵守其官方许可证。
 

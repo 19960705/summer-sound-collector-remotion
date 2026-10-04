@@ -1,0 +1,64 @@
+spec_version: '1.0'
+meta:
+  title: Letters in October
+  style_layer: none
+  style_layers: []
+  key: C major
+  meter: 3/4
+  tempo: 72
+  target_duration: '0:37.1'
+  deliverable: [full_mix]
+intent:
+  one_thing: 让一封秋日来信带着轻巧而亲近的期待抵达。
+  reference_pair:
+    - {track: 本项目的纸飞机画面, borrow: 轻盈的浮动节奏，不借用旋律}
+    - {track: 本项目的手写信画面, borrow: 留白与舒缓呼吸，不借用旋律}
+  listener_situation: 用户观看 37 秒水彩短片，音乐服务画面，无人声。
+  emotional_arc:
+    - {section: intro, mood: 轻轻展开, value: 3}
+    - {section: flight, mood: 轻快投递, value: 6}
+    - {section: leaf, mood: 温暖盘旋, value: 5}
+    - {section: letter, mood: 阅读留白, value: 2}
+    - {section: return, mood: 来信抵达, value: 6}
+    - {section: outro, mood: 安静收尾, value: 2}
+material:
+  motif: E5-G5-A5-G5；四个音的起点为第 1、2、2.5、3 拍，先上行三度再级进回落。
+  character: 像纸飞机划出一条小弧线，轻巧且不过度跳跃。
+  stated_in: [intro]
+  development_mode: 加工处理
+form:
+  - {id: intro, name: Intro, bars: 2, start_bar: 1, harmony: '|Imaj7 |VIm7 |', harmony_letters: '|Cmaj7 |Am7 |', development: new, energy: 3}
+  - {id: flight, name: Instrumental, bars: 4, start_bar: 3, harmony: '|IVmaj7 |V6 |IIIm7 |VIm7 |', harmony_letters: '|Fmaj7 |G6 |Em7 |Am7 |', development: sequence, energy: 6}
+  - {id: leaf, name: Instrumental, bars: 2, start_bar: 7, harmony: '|IVmaj7 |V7 |', harmony_letters: '|Fmaj7 |G7 |', development: vary, energy: 5}
+  - {id: letter, name: Breakdown, bars: 2, start_bar: 9, harmony: '|IVmaj7 |IVm6 |', harmony_letters: '|Fmaj7 |Fm6 |', development: contract, energy: 2}
+  - {id: return, name: Instrumental, bars: 3, start_bar: 11, harmony: '|Imaj7 |V7 |Imaj7 |', harmony_letters: '|Cmaj7 |G7 |Cmaj7 |', development: recap, energy: 6}
+  - {id: outro, name: Outro, bars: 1, start_bar: 14, harmony: '|Iadd9 |', harmony_letters: '|Cadd9 |', development: fragment, energy: 2}
+arrangement:
+  roster:
+    - {id: piano, instrument: 柔力度原声钢琴, role: 分解和弦与主旋律, band: 中低至中高, entry: intro, exit: end, midi: {program: 0, bank: 0, channel: 1}}
+    - {id: marimba, instrument: 马林巴木琴, role: 轻巧的旋律记忆点, band: 中高, entry: flight, exit: outro, midi: {program: 12, bank: 0, channel: 2}}
+    - {id: pizz, instrument: 拨奏弦乐, role: 弱拍律动, band: 中频, entry: flight, exit: return, midi: {program: 45, bank: 0, channel: 3}}
+    - {id: strings, instrument: 轻力度弦乐组, role: 间歇和声铺底, band: 中频, entry: flight, exit: outro, midi: {program: 48, bank: 0, channel: 4}}
+  energy_curve: {intro: 3, flight: 6, leaf: 5, letter: 2, return: 6, outro: 2}
+  subtraction_events:
+    - {at: {section: letter, bar_offset: 0}, what: 撤去木琴和拨弦并减少钢琴分解音, why: 给阅读画面留白}
+  hooks:
+    arrangement_hook: {what: 上行三度后回落的四音动机, first_at: intro, recurs_at: [flight, return]}
+  groove:
+    feel: straight
+    push_pull: [{part: melody, offset_ms: 40, note: 旋律略晚于和弦落点；另加固定种子 9ms 以内微偏移}]
+vocal: {}
+mix_intent:
+  note: 钢琴略左、木琴略右、弱拨弦靠右、弦乐靠左；轻混响；35 秒开始淡出。
+render:
+  local:
+    score: music/letters-in-october.score.json
+    command: npm run music
+    backend: macOS AVAudioEngine offline + system DLS instruments + FFmpeg
+checks:
+  self_audit: 已检查动机再现、段落连续、能量下降、乐器进退、借用小调下属和弦、纯器乐及完整尾音。
+  exemptions:
+    - 两项参考为本片视觉情绪，不引用外部歌曲或旋律。
+    - 固定镜头长度采用 14 个三拍小节加约两秒尾音，非完整歌曲曲式。
+    - 本地确定性乐谱渲染，不使用 Suno 或其他生成后端；Suno 提示词字段不适用。
+    - 无鼓组填充；宽度随各声部进退变化，声部本身固定声像。
