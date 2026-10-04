@@ -4,7 +4,7 @@ import {Film} from './Film';
 import {DURATION, FPS} from './timing';
 
 export const Root: React.FC = () => <Composition
-  id="SummerSoundCollector"
+  id="AutumnPostOffice"
   component={Film}
   durationInFrames={DURATION}
   fps={FPS}

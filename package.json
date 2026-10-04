@@ -2,12 +2,12 @@
   "name": "summer-sound-collector-remotion",
   "version": "1.0.0",
   "private": true,
-  "description": "Editable watercolor summer sound animation rebuilt with Remotion, React and SVG.",
+  "description": "Autumn post office: watercolor letters, maple leaves and a burgundy mailbox.",
   "scripts": {
     "start": "remotion studio src/index.ts",
     "typecheck": "tsc --noEmit",
     "build": "remotion bundle src/index.ts",
-    "render": "remotion render src/index.ts SummerSoundCollector out/summer-sound-collector.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=3",
+    "render": "remotion render src/index.ts AutumnPostOffice out/autumn-post-office.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=3",
     "render:preview": "npm run render -- --scale=0.5",
     "stills": "node scripts/render-stills.mjs",
     "verify": "node scripts/verify.mjs"

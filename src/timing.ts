@@ -2,15 +2,15 @@ export const FPS = 30;
 export const DURATION = 1113;
 export const SHOTS = [
   {id: 'greeting', start: 0, end: 2.85},
-  {id: 'lotus', start: 2.85, end: 4.8},
-  {id: 'constellation', start: 4.8, end: 7.8},
-  {id: 'pond', start: 7.8, end: 12.65},
-  {id: 'chimes', start: 12.65, end: 15.95},
-  {id: 'flower', start: 15.95, end: 18.75},
-  {id: 'summer', start: 18.75, end: 20.95},
-  {id: 'score', start: 20.95, end: 24.45},
+  {id: 'leaf-card', start: 2.85, end: 4.8},
+  {id: 'postal-route', start: 4.8, end: 7.8},
+  {id: 'airmail', start: 7.8, end: 12.65},
+  {id: 'autumn-tree', start: 12.65, end: 15.95},
+  {id: 'maple', start: 15.95, end: 18.75},
+  {id: 'stamps', start: 18.75, end: 20.95},
+  {id: 'letter', start: 20.95, end: 24.45},
   {id: 'assembly', start: 24.45, end: 28.8},
-  {id: 'player', start: 28.8, end: 31.6},
+  {id: 'mailbox', start: 28.8, end: 31.6},
   {id: 'endcard', start: 31.6, end: 34.65},
   {id: 'signoff', start: 34.65, end: 37.1},
 ] as const;

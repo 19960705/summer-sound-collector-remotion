@@ -6,9 +6,9 @@ import '@fontsource/mr-de-haviland/400.css';
 import '@fontsource/zen-kurenaido/400.css';
 import {C, Definitions} from './art';
 import {SHOTS} from './timing';
-import {Greeting, LotusCard, Constellation, Pond, Chimes, Flower, Summer, Score, Assembly, Hero, Endcard, Signoff} from './scenes';
+import {Greeting, LeafCard, PostalRoute, Airmail, AutumnTree, Maple, Stamps, Letter, Assembly, Hero, Endcard, Signoff} from './scenes';
 
-const components = [Greeting,LotusCard,Constellation,Pond,Chimes,Flower,Summer,Score,Assembly,Hero,Endcard,Signoff];
+const components = [Greeting,LeafCard,PostalRoute,Airmail,AutumnTree,Maple,Stamps,Letter,Assembly,Hero,Endcard,Signoff];
 
 export const Film: React.FC<{sound:boolean}> = ({sound}) => {
   const frame=useCurrentFrame();
@@ -17,9 +17,9 @@ export const Film: React.FC<{sound:boolean}> = ({sound}) => {
   const [fontHandle]=useState(()=>delayRender('Loading bundled handwriting fonts'));
   useEffect(()=>{
     Promise.all([
-      document.fonts.load('40px "Gaegu"','SUMMER 여름'),
-      document.fonts.load('40px "Mr De Haviland"','collector?'),
-      document.fonts.load('40px "Zen Kurenaido"','夏 蓮 なつ'),
+      document.fonts.load('40px "Gaegu"','AUTUMN POST'),
+      document.fonts.load('40px "Mr De Haviland"','a letter.'),
+      document.fonts.load('40px "Zen Kurenaido"','秋'),
     ]).then(()=>continueRender(fontHandle)).catch(cancelRender);
   },[fontHandle]);
   const index=SHOTS.findIndex(s=>t>=s.start&&t<s.end);
